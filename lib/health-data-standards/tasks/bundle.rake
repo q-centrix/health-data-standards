@@ -226,4 +226,16 @@ namespace :bundle do
 
   end
 
+  desc 'Remove all artifacts from NLM import process'
+  task :reset => :environment do
+    [Record,
+     HealthDataStandards::CQM::Bundle,
+     HealthDataStandards::CQM::Measure,
+     HealthDataStandards::CQM::PatientCache,
+     HealthDataStandards::CQM::QueryCache,
+     HealthDataStandards::SVS::ValueSet].each do |klass|
+       num_deleted = klass.delete_all
+       puts "#{klass.name}: Deleted [#{num_deleted}] records"
+     end
+  end
 end
