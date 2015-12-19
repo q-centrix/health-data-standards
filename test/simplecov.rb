@@ -1,5 +1,7 @@
 if ENV['CODECLIMATE_REPO_TOKEN']
   require 'codeclimate-test-reporter'
+  require 'webmock'
+  WebMock.allow_net_connect!
   CodeClimate::TestReporter.start
 end
 require 'simplecov'
