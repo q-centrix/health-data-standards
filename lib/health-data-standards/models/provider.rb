@@ -11,7 +11,7 @@ class Provider
 
   validates_uniqueness_of :npi, allow_blank: true
 
-  embeds_one :organization
+  embeds_one :organization, class_name: 'HealthDataStandards::Organization'
   embeds_many :cda_identifiers, class_name: "CDAIdentifier", as: :cda_identifiable
 
   scope :by_npi, ->(an_npi){ where("cda_identifiers.root" => NPI_OID, "cda_identifiers.extension" => an_npi)}
