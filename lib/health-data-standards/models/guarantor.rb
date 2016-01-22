@@ -1,8 +1,8 @@
 class Guarantor
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
-  
-  embeds_one :organization
+
+  embeds_one :organization, class_name: 'HealthDataStandards::Organization'
   embeds_one :person
   
   field :time, type: Integer

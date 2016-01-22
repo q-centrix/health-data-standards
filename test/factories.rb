@@ -70,7 +70,7 @@ FactoryGirl.define do
     f.fill_status "aborted"
   end
 
-  factory :organization do |f|
+  factory :organization, class: HealthDataStandards::Organization do |f|
     f.name "Doctor Worm & Associates"
   end
 
