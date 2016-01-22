@@ -9,7 +9,7 @@ class Encounter < Entry
   embeds_one :transferTo, class_name: "Transfer"
   embeds_one :transferFrom, class_name: "Transfer"
 
-  embeds_one :facility
+  embeds_one :facility, class_name: "HealthDataStandards::Facility"
   embeds_one :reason, class_name: "Entry"
 
   belongs_to :performer, class_name: "Provider"

@@ -11,7 +11,7 @@ class Procedure < Entry
   field :radiation_dose,      type: Hash 
   field :radiation_duration,  type: Hash 
 
-  embeds_one :facility
+  embeds_one :facility, class_name: "HealthDataStandards::Facility"
 
   belongs_to :performer, class_name: "Provider"
 
