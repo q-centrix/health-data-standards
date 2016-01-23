@@ -7,8 +7,8 @@ class OrderInformation
   field :quantityOrdered, as: :quantity_ordered, type: Hash
   field :orderExpirationDateTime, as: :order_expiration_date_time, type: Integer
   field :orderDateTime, as: :order_date_time, type: Integer
-  
-  belongs_to :provider
+
+  belongs_to :provider, class_name: "HealthDataStandards::Provider"
 
 
   def shift_dates(date_diff)
