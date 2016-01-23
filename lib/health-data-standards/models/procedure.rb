@@ -13,7 +13,7 @@ class Procedure < Entry
 
   embeds_one :facility, class_name: "HealthDataStandards::Facility"
 
-  belongs_to :performer, class_name: "Provider"
+  belongs_to :performer, class_name: "HealthDataStandards::Provider"
 
   def shift_dates(date_diff)
   	super

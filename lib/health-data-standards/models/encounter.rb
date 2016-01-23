@@ -12,7 +12,7 @@ class Encounter < Entry
   embeds_one :facility, class_name: "HealthDataStandards::Facility"
   embeds_one :reason, class_name: "Entry"
 
-  belongs_to :performer, class_name: "Provider"
+  belongs_to :performer, class_name: "HealthDataStandards::Provider"
 
   alias :transfer_to :transferTo
   alias :transfer_to= :transferTo=

@@ -10,7 +10,7 @@ class Condition < Entry
   field :anatomical_target, type: Hash
   field :anatomical_location, type: Hash
 
-  embeds_many :treating_provider,  class_name: "Provider"
+  embeds_many :treating_provider,  class_name: "HealthDataStandards::Provider"
 
   alias   :cause_of_death         :causeOfDeath
   alias   :cause_of_death=        :causeOfDeath=
