@@ -3,6 +3,8 @@ module HealthDataStandards
     include Mongoid::Document
     include Mongoid::Attributes::Dynamic
 
+    store_in collection: 'organizations'
+
     field :name, type: String
 
     embeds_many :addresses, as: :locatable
