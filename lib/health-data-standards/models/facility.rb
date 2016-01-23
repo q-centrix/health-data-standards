@@ -3,6 +3,8 @@ module HealthDataStandards
     include Mongoid::Document
     include Mongoid::Attributes::Dynamic
 
+    store_in collection: 'facilities'
+
     field :name, type: String
     field :code, type: Hash
 
