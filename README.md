@@ -17,6 +17,39 @@ The Quality Measure engine relies on a MongoDB [MongoDB](http://www.mongodb.org/
 
     http://www.mongodb.org/display/DOCS/Quickstart
 
+NIH NLM Quality Measure Data Bundle
+
+This project uses measure bundles that contain the measure artifacts that are
+needed to begin the measure calculation process. In addition to the measure
+bundle, the value sets need to be loaded into the system from the NLM VSAC
+Service. You will need an NLM account in order to complete this step and load
+value sets from the VSAC service. Register for an account at:
+
+[https://uts.nlm.nih.gov/home.html](https://uts.nlm.nih.gov/home.html)
+
+Once you receive your username and password, run the following rake task:
+
+`rake bundle:download_and_install version=2.6.0`
+
+You should see a success message similar to:
+
+    Successfully imported bundle at: bundles/bundle-2.6.0.zip
+    Imported into environment: DEVELOPMENT
+    Loaded all measures
+    Sub-Measures Loaded: 155
+    Test Patients Loaded: 56
+    Extensions Loaded: 2
+    Value Sets Loaded: 799
+
+If you want to use your own real data, it would behoove you to remove the
+existing dummy data created during the import process to avoid conflicts:
+
+`rake bundle:cleanup`
+
+If you want to remove all of the bundle artifacts to start over from scratch:
+
+`rake bundle:uninstall`
+
 Project Practices
 =================
 
