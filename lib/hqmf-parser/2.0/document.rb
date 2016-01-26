@@ -258,7 +258,7 @@ module HQMF2
         criteria.instance_variable_set(:@source_data_criteria, collapsed_source_data_criteria[criteria.id])
       end
       handle_variable(criteria) if criteria.variable
-
+      handle_specific_source_data_criteria_reference(criteria)
       @reference_ids.concat(criteria.children_criteria)
       if criteria.temporal_references
         criteria.temporal_references.each do |tr|
@@ -266,5 +266,17 @@ module HQMF2
         end
       end
     end
+    
+    # For specific occurrence data criteria, make sure the source data criteria reference points
+    # to the correct source data criteria.
+    def handle_specific_source_data_criteria_reference(criteria)
+      original_sdc = find(@source_data_criteria, :id, criteria.source_data_criteria)
+      updated_sdc = find(@source_data_criteria, :id, criteria.id)
+      if !updated_sdc.nil? && !criteria.specific_occurrence.nil? && 
+          (original_sdc.nil? || original_sdc.specific_occurrence.nil?)
+        criteria.instance_variable_set(:@source_data_criteria, criteria.id)
+      end
+    end
+    
   end
 end
