@@ -42,9 +42,14 @@ You should see a success message similar to:
     Extensions Loaded: 2
     Value Sets Loaded: 799
 
-If you want to remove all of the effects of the import to start over, run:
+If you want to use your own real data, it would behoove you to remove the
+existing dummy data created during the import process to avoid conflicts:
 
-`rake bundle:reset`
+`rake bundle:cleanup`
+
+If you want to remove all of the bundle artifacts to start over from scratch:
+
+`rake bundle:uninstall`
 
 Project Practices
 =================
