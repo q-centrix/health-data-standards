@@ -21,7 +21,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'nokogiri', '~> 1.6.7.1'
   s.add_dependency 'highline', "~> 1.7.0"
 
-  s.add_dependency 'rubyzip', '0.9.9'
+  s.add_dependency 'rubyzip', '>= 1.0.0'
+  s.add_dependency 'zip-zip' # will load compatibility for old rubyzip API
 
   s.add_dependency 'log4r', '~> 1.1.10'
   s.add_dependency 'memoist', '~> 0.9.1'

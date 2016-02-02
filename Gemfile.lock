@@ -19,8 +19,9 @@ PATH
       mongoid-tree (~> 1.0.4)
       nokogiri (~> 1.6.7.1)
       rest-client (~> 1.8.0)
-      rubyzip (= 0.9.9)
+      rubyzip (>= 1.0.0)
       uuid (~> 2.3.7)
+      zip-zip
 
 GEM
   remote: https://rubygems.org/
@@ -38,7 +39,6 @@ GEM
     ansi (1.5.0)
     awesome_print (1.6.1)
     bson (3.2.6)
-    bson (3.2.6-java)
     builder (3.2.2)
     byebug (6.0.2)
     cane (2.3.0)
@@ -86,11 +86,10 @@ GEM
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     netrc (0.11.0)
-    nokogiri (1.6.7.1)
+    nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
-    nokogiri (1.6.7.1-java)
     optionable (0.2.0)
-    origin (2.1.1)
+    origin (2.2.0)
     parallel (1.6.1)
     rake (10.4.2)
     rest-client (1.8.0)
@@ -98,7 +97,7 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     ruby-progressbar (1.7.5)
-    rubyzip (0.9.9)
+    rubyzip (1.1.7)
     safe_yaml (1.0.4)
     simplecov (0.11.1)
       docile (~> 1.1.0)
@@ -120,7 +119,6 @@ GEM
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
-    unf (0.1.4-java)
     unf_ext (0.0.7.1)
     uuid (2.3.8)
       macaddr (~> 1.0)
@@ -128,6 +126,8 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
 
 PLATFORMS
   java
