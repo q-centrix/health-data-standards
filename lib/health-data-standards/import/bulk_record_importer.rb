@@ -128,9 +128,9 @@ module HealthDataStandards
             record.provider_performances.push(ProviderPerformance.new(start_date: prov.start_date, end_date: prov.end_date, provider: ancestor))
           end
         end
-        if record.save
-          return record
-        end
+        record.save
+
+        record
       end
     end
   end
