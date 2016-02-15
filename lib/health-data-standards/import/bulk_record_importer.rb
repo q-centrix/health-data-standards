@@ -128,6 +128,7 @@ module HealthDataStandards
         end
         record.save
 
+        record
       end
     end
   end
