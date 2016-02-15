@@ -94,7 +94,7 @@ module HealthDataStandards
       # Returns the hqmf-parser's ruby implementation of an HQMF document.
       # Rebuild from population_criteria, data_criteria, and measure_period JSON
       def as_hqmf_model
-        @hqmf ||=  HQMF::Document.from_json(self.hqmf_document)
+        @hqmf ||=  ::HQMF::Document.from_json(self.hqmf_document)
       end
 
       def key
