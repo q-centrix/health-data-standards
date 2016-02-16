@@ -2,7 +2,7 @@ class InsuranceProvider < Entry
   include Mongoid::Document
   
   embedded_in :record, class_name: 'Record'
-  embeds_one :payer, class_name: "Organization"
+  embeds_one :payer, class_name: "HealthDataStandards::Organization"
   embeds_many :guarantors, class_name: "Guarantor"
   embeds_one :subscriber, class_name: "Person"
   

@@ -56,7 +56,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 				facility_values.each do |fac_vals|
 					e_vals = vals.merge enc_vals
 			  	entry = Encounter.new(e_vals)
-			  	entry.facility = Facility.new(fac_vals)
+			  	entry.facility = HealthDataStandards::Facility.new(fac_vals)
 					entry.shift_dates(date_shift)
 					entry_shift_assertions(e_vals,date_shift, entry) {|ev,ds,ent| entry_shift_assertions(fac_vals,ds,entry.facility)}
 				end
@@ -73,7 +73,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 												{start_time: nil, end_time: 1},
 												{start_time: 1, end_time: 1}]
 		facility_values.each do |fac_vals|
-			facility = Facility.new(fac_vals)
+			facility = HealthDataStandards::Facility.new(fac_vals)
 			facility.shift_dates(date_shift)
 			entry_shift_assertions(fac_vals,date_shift, facility)
 		end
