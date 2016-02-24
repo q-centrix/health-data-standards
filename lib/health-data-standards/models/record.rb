@@ -16,6 +16,7 @@ class Record
   field :ethnicity, type: Hash
   field :languages, type: Array, default: []
   field :test_id, type: BSON::ObjectId
+  field :facility_id, type: String
   field :marital_status, type: Hash
   field :medical_record_number, type: String
   field :medical_record_assigner, type: String
@@ -24,6 +25,7 @@ class Record
   index "last" => 1
   index medical_record_number: 1
   index test_id: 1
+  index facility_id: 1
   index bundle_id: 1
   embeds_many :allergies
   embeds_many :care_goals, class_name: "Entry" # This can be any number of different entry types
