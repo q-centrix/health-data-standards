@@ -56,13 +56,7 @@
       <!-- SHALL ID -->
       <%== render :partial=>"id", :collection=>header.legal_authenticator.ids, :id=>"identifier" %>
       <%== render :partial=>"address" , :collection=>header.legal_authenticator.addresses %>
-      <assignedPerson>
-        <name>
-           <given><%= header.legal_authenticator.person.given %></given>
-           <family><%= header.legal_authenticator.person.family %></family>
-        </name>
-     </assignedPerson>
-
+      <%== render :partial => "assigned_person", :locals => { person: header.legal_authenticator.person } %>
       <%== render :partial=>"organization", :locals=>{organization: header.legal_authenticator.organization, tag_name: "representedOrganization"} %>
     </assignedEntity>
   </legalAuthenticator>
