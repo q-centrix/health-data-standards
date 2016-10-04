@@ -6,6 +6,14 @@ class BulkRecordImporterTest < Minitest::Test
     Record.all.delete
   end
 
+  def test_bulk_record_import_cat1_document
+    file = File.new('test/fixtures/bulk_importer/bulk_import_sample/Cancer_Adult_Female_B.xml')
+    HealthDataStandards::Import::BulkRecordImporter.import(file, {}, 42)
+
+    patient = Record.where({"first" => "Cancer_Adult_Female"}).first
+    assert_equal patient.facility_id, "42"
+  end
+
   def test_bulk_record_import_xml_archive
     file = File.new('test/fixtures/bulk_importer/bulk_import_sample.zip')
     HealthDataStandards::Import::BulkRecordImporter.import_archive(file,"./tmp/failed")
@@ -14,7 +22,6 @@ class BulkRecordImporterTest < Minitest::Test
     assert_equal patient1["encounters"].count, 2, "Patient1 should have 2 encounters"
     assert_equal patient2["encounters"].count, 2, "Patient2 should have 2 encounters"
   end
-
 
   def test_bulk_record_import_xml_directory
     file = Dir.new('test/fixtures/bulk_importer/bulk_import_sample')
