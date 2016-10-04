@@ -31,20 +31,20 @@ FactoryGirl.define do
       "1.2.3.#{n}"
     end
   end
-  
+
   factory :entry do |f|
     f.codes           { { "SNOMED-CT" => ["12341234"] } }
     f.start_time      1267322332
     f.end_time        1267323432
   end
-  
+
   factory :medical_equipment, class: "MedicalEquipment" do |f|
     f.codes           { { "SNOMED-CT" => ["598721"] } }
     f.start_time      1267322332
     f.end_time        1267323432
     f.values  { [FactoryGirl.build(:physical_quantity_result_value)]}
   end
-  
+
   factory :support do |f|
     f.given_name "Bob"
     f.family_name "Loblaw"
@@ -91,7 +91,7 @@ FactoryGirl.define do
     f.type { { "SNOMED-CT" => ["398705004"]}}
     f.codes { { "SNOMED-CT" => ["363908000"]}}
   end
-  
+
   factory :advance_directive, class: Entry do |f|
     f.codes { { "SNOMED-CT" => ["4234322"]}}
     f.start_time { 1.month.ago }
@@ -139,7 +139,7 @@ FactoryGirl.define do
 
   factory :order_information do |f|
   end
-  
+
   factory :physical_quantity_result_value do |f|
     f.scalar 5
     f.units "strips"
@@ -153,12 +153,15 @@ FactoryGirl.define do
   end
 
   factory :record do |f|
-    f.encounters { |e| [FactoryGirl.build(:encounter)]}
+    encounters { |e| [FactoryGirl.build(:encounter)]}
   end
 
   factory 'bigger_record', class: Record do |f|
     f.encounters { |e| FactoryGirl.build_list(:encounter, 3)}
     f.conditions { |c| FactoryGirl.build_list(:condition, 3)}
+  end
+
+  factory :empty_record, class: Record do |f|
   end
 
   factory :vital_sign do |f|
@@ -172,16 +175,16 @@ FactoryGirl.define do
     l.href          "http://t1.x.y.com"
     l.extension     "abc"
   end
-  
+
   factory "pedigree", class: Metadata::Pedigree do |p|
     p.author { FactoryGirl.build(:author) }
     p.organization  "Health Care Inc"
   end
-  
+
   factory "author", class: Metadata::Author do |a|
     a.name "John Smith"
   end
-  # 
+  #
   # factory "metadata/record_date" do |r|
   #   r.operation           "MODIFIED"
   #   r.operation_time      { Time.at(Time.now.to_i - rand(10000000)) }
@@ -189,13 +192,12 @@ FactoryGirl.define do
   #     FactoryGirl.build("metadata/pedigree")
   #   end
   # end
-  # 
+  #
   factory "metadata", class: Metadata::Base do |m|
     m.original_creation_time Time.now
     m.pedigrees { [FactoryGirl.build(:pedigree)] }
     m.linked_documents { [FactoryGirl.build("metadata/link_info")] }
     m.confidentiality "<hmd:a>text</hmd:a><hmd:c>embedded element</hmd:c>"
   end
-  
-end
 
+end
