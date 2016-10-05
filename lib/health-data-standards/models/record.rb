@@ -61,7 +61,7 @@ class Record
   scope :by_patient_id, ->(id) { where(:medical_record_number => id) }
 
   def self.update_or_create(data)
-    existing = Record.where(medical_record_number: data.medical_record_number).first
+    existing = Record.where(medical_record_number: data.medical_record_number, facility_id: data.facility_id).first
     if existing
       existing.update_attributes!(data.attributes.except('_id'))
       existing

@@ -88,7 +88,7 @@ module HealthDataStandards
         record.save!
       end
 
-      def self.import(xml_data, provider_map = {})
+      def self.import(xml_data, provider_map = {}, facility_id = nil)
         doc = Nokogiri::XML(xml_data)
 
         providers = []
@@ -109,6 +109,7 @@ module HealthDataStandards
             return {status: 'error', message: "Document templateId does not identify it as a C32 or CCDA", status_code: 400}
           end
 
+          patient_data.facility_id = facility_id
           record = Record.update_or_create(patient_data)
 
           begin
