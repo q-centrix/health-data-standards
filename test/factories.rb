@@ -7,7 +7,7 @@ FactoryGirl.define do
     f.severity {{"SNOMED-CT" => ["39579001"]}}
   end
 
-  factory :condition do |f|
+  factory :condition, class: HealthDataStandards::Condition do |f|
     f.codes           { { "SNOMED-CT" => ["16356006"] } }
     f.cause_of_death  false
     f.start_time      1269776601

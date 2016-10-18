@@ -29,7 +29,7 @@ class Record
   index bundle_id: 1
   embeds_many :allergies
   embeds_many :care_goals, class_name: "Entry" # This can be any number of different entry types
-  embeds_many :conditions
+  embeds_many :conditions, class_name: "HealthDataStandards::Condition"
   embeds_many :encounters
   embeds_many :communications
   embeds_many :family_history
