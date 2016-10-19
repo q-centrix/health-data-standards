@@ -40,7 +40,7 @@
       "time": null,
       "time_of_death": null,
       "type": null,
-      "_type": "Condition"
+      "_type": "HealthDataStandards::Condition"
     },
     {
       "causeOfDeath": null,
@@ -80,7 +80,7 @@
       "time": null,
       "time_of_death": null,
       "type": null,
-      "_type": "Condition"
+      "_type": "HealthDataStandards::Condition"
     }
   ],
   "description": "",
