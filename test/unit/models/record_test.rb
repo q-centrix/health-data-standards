@@ -53,8 +53,8 @@ class RecordTest < Minitest::Test
     identifier = CDAIdentifier.new(root: '1.2.3.4')
     value_a = PhysicalQuantityResultValue.new(scalar: 10)
     value_b = PhysicalQuantityResultValue.new(scalar: 20)
-    record.procedures << Procedure.new(cda_identifier: identifier, codes: {:x => {:y => "z"}}, values: [value_a])
-    record.procedures << Procedure.new(cda_identifier: identifier, codes: {:a => "b", :x => {:z => "a"}}, values: [value_b])
+    record.procedures << HealthDataStandards::Procedure.new(cda_identifier: identifier, codes: {:x => {:y => "z"}}, values: [value_a])
+    record.procedures << HealthDataStandards::Procedure.new(cda_identifier: identifier, codes: {:a => "b", :x => {:z => "a"}}, values: [value_b])
 
     assert_equal 2, record.procedures.size
 

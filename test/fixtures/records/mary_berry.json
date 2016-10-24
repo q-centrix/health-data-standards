@@ -195,7 +195,7 @@
         ]
       },
       "time": null,
-      "_type": "Procedure"
+      "_type": "HealthDataStandards::Procedure"
     }
   ],
   "allergies" : [ 

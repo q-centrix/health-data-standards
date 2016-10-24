@@ -42,7 +42,7 @@ module HealthDataStandards
             end
             ref.referenced_type = case ref_xml.at_xpath("./sdtc:actReference/@classCode").value
             when "ACT"
-              "Procedure"
+              "HealthDataStandards::Procedure"
             end
             id_element = ref_xml.at_xpath("./sdtc:actReference/sdtc:id")
             ref.referenced_id = id_element['extension']

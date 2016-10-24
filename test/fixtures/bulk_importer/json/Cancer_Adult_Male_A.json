@@ -254,7 +254,7 @@
           "_type": "CodedResultValue"
         }
       ],
-      "_type": "Procedure"
+      "_type": "HealthDataStandards::Procedure"
     },
     {
       "codes": {
@@ -294,7 +294,7 @@
           "_type": "CodedResultValue"
         }
       ],
-      "_type": "Procedure"
+      "_type": "HealthDataStandards::Procedure"
     },
     {
       "codes": {
@@ -326,7 +326,7 @@
         ]
       },
       "time": null,
-      "_type": "Procedure"
+      "_type": "HealthDataStandards::Procedure"
     },
     {
       "codes": {
@@ -355,7 +355,7 @@
         ]
       },
       "time": null,
-      "_type": "Procedure"
+      "_type": "HealthDataStandards::Procedure"
     },
     {
       "codes": {
@@ -387,7 +387,7 @@
         ]
       },
       "time": null,
-      "_type": "Procedure"
+      "_type": "HealthDataStandards::Procedure"
     }
   ],
   "race": {
