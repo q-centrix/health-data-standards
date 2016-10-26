@@ -145,7 +145,7 @@ FactoryGirl.define do
     f.units "strips"
   end
 
-  factory :procedure do |f|
+  factory :procedure, class: HealthDataStandards::Procedure do |f|
     f.codes           { { "SNOMED-CT" => ["171055003"] } }
     f.start_time      1257901150
     f.end_time        1258901150
