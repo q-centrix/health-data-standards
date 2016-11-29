@@ -71,6 +71,13 @@ class Record
     end
   end
 
+  def self.delete_and_create(data)
+    destroy_all(medical_record_number: data.medical_record_number,
+                facility_id: data.facility_id)
+    data.save!
+    data
+  end
+
   def providers
     provider_performances.map {|pp| pp.provider }
   end

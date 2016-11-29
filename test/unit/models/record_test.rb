@@ -127,4 +127,34 @@ class RecordTest < Minitest::Test
     assert_equal first_record, new_record
     assert_equal Record.where(medical_record_number: "1235").count, 1
   end
+
+  def test_delete_and_create_for_new_record
+    first_record = FactoryGirl.create(:empty_record,
+                                      facility_id: 1,
+                                      medical_record_number: '1234')
+
+    record = FactoryGirl.build(:empty_record,
+                               facility_id: 2,
+                               medical_record_number: '1234')
+
+    new_record = Record.delete_and_create(record)
+
+    refute_equal first_record, new_record
+    assert_equal Record.where(medical_record_number: '1234').count, 2
+  end
+
+  def test_delete_and_create_for_existing_record
+    first_record = FactoryGirl.create(:empty_record,
+                                      facility_id: 3,
+                                      medical_record_number: '1235')
+
+    record = FactoryGirl.build(:empty_record,
+                               facility_id: 3,
+                               medical_record_number: '1235')
+
+    new_record = Record.delete_and_create(record)
+
+    refute_equal first_record, new_record
+    assert_equal Record.where(medical_record_number: '1235').count, 1
+  end
 end

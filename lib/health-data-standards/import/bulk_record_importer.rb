@@ -80,7 +80,7 @@ module HealthDataStandards
 
       def self.import_json(data,provider_map = {})
         json = JSON.parse(data,:max_nesting=>100)
-        record = Record.update_or_create(Record.new(json))
+        record = Record.delete_and_create(Record.new(json))
         providers = record.provider_performances
         providers.each do |prov|
           prov.provider.ancestors.each do |ancestor|
@@ -112,7 +112,7 @@ module HealthDataStandards
           end
 
           patient_data.facility_id = facility_id
-          record = Record.update_or_create(patient_data)
+          record = Record.delete_and_create(patient_data)
 
           begin
             providers = CDA::ProviderImporter.instance.extract_providers(doc, record)
