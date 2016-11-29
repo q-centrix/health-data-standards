@@ -61,7 +61,8 @@ class Record
   scope :by_patient_id, ->(id) { where(:medical_record_number => id) }
 
   def self.delete_and_create(data)
-    Record.destroy_all(medical_record_number: data.medical_record_number, facility_id: data.facility_id)
+    destroy_all(medical_record_number: data.medical_record_number,
+                facility_id: data.facility_id)
     data.save!
     data
   end
