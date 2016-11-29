@@ -134,8 +134,7 @@ class RecordTest < Minitest::Test
 
     new_record = Record.delete_and_create(record)
 
-    assert_not_equal first_record, new_record
-
+    wont_equal first_record, new_record
     assert_equal Record.where(medical_record_number: '1235').count, 1
   end
 end
