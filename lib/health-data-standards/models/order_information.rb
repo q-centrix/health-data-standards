@@ -8,8 +8,8 @@ class OrderInformation
   field :orderExpirationDateTime, as: :order_expiration_date_time, type: Integer
   field :orderDateTime, as: :order_date_time, type: Integer
 
-  belongs_to :provider, class_name: "HealthDataStandards::Provider"
-
+  belongs_to :provider, class_name: "HealthDataStandards::Provider",
+    optional: true
 
   def shift_dates(date_diff)
     self.orderDateTime = self.orderDateTime.nil? ? nil : self.orderDateTime + date_diff
