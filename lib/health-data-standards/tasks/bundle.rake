@@ -242,8 +242,8 @@ namespace :bundle do
         HealthDataStandards::SVS::ValueSet.where(bundle_id: bundle.id)
       )
       bundle.delete
-      puts "HealthDataStandards::CQM::Bundle: Deleted [1] record"
     end
+    puts "HealthDataStandards::CQM::Bundle: Deleted [#{bundles.count}] records"
   end
 
   desc 'Remove all dummy data from NLM import process'
