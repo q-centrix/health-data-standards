@@ -25,10 +25,10 @@ class Entry
   field :reason, type: Hash
   field :health_record_field, type: Hash
   
-  attr_protected :version
-  attr_protected :_id
-  attr_protected :created_at
-  attr_protected :updated_at
+  attr_accessor :version
+  attr_accessor :_id
+  attr_accessor :created_at
+  attr_accessor :updated_at
   
   def add_reference(entry, type)
     references.build(type: type, referenced_type: entry.class, referenced_id: entry.id)
