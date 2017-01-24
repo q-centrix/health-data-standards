@@ -16,6 +16,7 @@ class Record
   field :ethnicity, type: Hash
   field :languages, type: Array, default: []
   field :test_id, type: BSON::ObjectId
+  field :bundle_id, type: BSON::ObjectId
   field :facility_id, type: String
   field :marital_status, type: Hash
   field :medical_record_number, type: String
@@ -39,6 +40,8 @@ class Record
   embeds_many :procedures, class_name: "HealthDataStandards::Procedure"
   embeds_many :results, class_name: "LabResult"
   embeds_many :socialhistories, class_name: "Entry"
+  embeds_many :care_experiences
+  embeds_many :assessments
 
   alias :social_history :socialhistories
   alias :social_history= :socialhistories=
@@ -51,7 +54,7 @@ class Record
 
   Sections = [:allergies, :care_goals, :conditions, :encounters, :immunizations, :medical_equipment,
    :medications, :procedures, :results, :communications, :family_history, :social_history, :vital_signs, :support, :advance_directives,
-   :insurance_providers, :functional_statuses]
+   :insurance_providers, :functional_statuses, :care_experiences, :assessments]
 
   embeds_many :provider_performances
   embeds_many :addresses, as: :locatable
@@ -135,6 +138,7 @@ class Record
       else
         unique_entries[entry.identifier] = entry
       end
+
     end
     self.send("#{section}=", unique_entries.values)
   end
