@@ -229,13 +229,21 @@ namespace :bundle do
   end
 
   desc 'Remove all artifacts from NLM import process'
-  task uninstall: :environment do
-    Rake::Task['bundle:cleanup'].execute
-    [
-      HealthDataStandards::CQM::Bundle,
-      HealthDataStandards::CQM::Measure,
-      HealthDataStandards::SVS::ValueSet
-    ].each { |klass| clean_bundle_klass(klass) }
+  task :uninstall, %i(version) => :environment do |_, args|
+    fail 'Version required' unless args.version
+
+    bundles = HealthDataStandards::CQM::Bundle.where(version: args.version)
+
+    bundles.each do |bundle|
+      clean_bundle_klass(
+        HealthDataStandards::CQM::Measure.where(bundle_id: bundle.id)
+      )
+      clean_bundle_klass(
+        HealthDataStandards::SVS::ValueSet.where(bundle_id: bundle.id)
+      )
+      bundle.delete
+    end
+    puts "HealthDataStandards::CQM::Bundle: Deleted [#{bundles.count}] records"
   end
 
   desc 'Remove all dummy data from NLM import process'
