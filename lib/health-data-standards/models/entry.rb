@@ -23,7 +23,13 @@ class Entry
   field :negationReason, as: :negation_reason, type: Hash
   field :oid, type: String
   field :reason, type: Hash
-
+  field :health_record_field, type: Hash
+  
+  attr_accessor :version
+  attr_accessor :_id
+  attr_accessor :created_at
+  attr_accessor :updated_at
+  
   def add_reference(entry, type)
     references.build(type: type, referenced_type: entry.class, referenced_id: entry.id)
   end
