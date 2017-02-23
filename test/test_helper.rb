@@ -95,7 +95,7 @@ class Hash
 end
 
 
-HealthDataStandards.logger.outputters = Log4r::FileOutputter.new('Health Data Standards', filename: 'test.log', trunc: true)
+HealthDataStandards.logger = Logger.new('test.log')
 
 def collection_fixtures(collection, *id_attributes)
   Mongoid.client(:default)[collection].drop
