@@ -7,7 +7,6 @@ require 'builder'
 require 'csv'
 require 'nokogiri'
 require 'ostruct'
-require 'log4r'
 require 'memoist'
 
 # Freedom patches
@@ -187,6 +186,5 @@ end
 if defined?(Rails)
   require_relative 'health-data-standards/railtie'
 else
-  HealthDataStandards.logger = Log4r::Logger.new("Health Data Standards")
-  HealthDataStandards.logger.outputters = Log4r::Outputter.stdout
+  HealthDataStandards.logger = Logger.new(STDOUT)
 end
