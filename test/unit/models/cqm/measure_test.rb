@@ -46,6 +46,14 @@ class MeasureTest < ActiveSupport::TestCase
     assert measures.where(:hqmf_id=>"0348").count() == 1, "Top level measure 0348 Not Found"
   end
 
+  test "#data_criteria returns correct value" do
+    @measure.data_criteria = [1, 2, 3]
+    assert_equal [1, 2, 3], @measure.data_criteria
+
+    @measure.data_criteria = []
+    @measure.hqmf_document = { 'data_criteria' => { 1 => 2, 3 => 4 } }
+    assert_equal [{ 1 => 2, 3 => 4 }], @measure.data_criteria
+  end
 
   test "all data criteria" do
     adc = @measure.all_data_criteria

@@ -144,6 +144,11 @@ module HealthDataStandards
         self.name
       end
 
+      def data_criteria
+        return self['data_criteria'] if self['data_criteria'].any?
+        [hqmf_document['data_criteria']]
+      end
+
       def all_data_criteria
         return @crit if @crit
         @crit = []
