@@ -16,7 +16,7 @@ PATH
       memoist (~> 0.9.1)
       mongoid (~> 6.0.0)
       mongoid-tree (~> 2.1.0)
-      nokogiri (~> 1.6.7.2)
+      nokogiri (>= 1.7.1)
       rubyzip (>= 1.0.0)
       uuid (~> 2.3.7)
       zip-zip
@@ -54,7 +54,7 @@ GEM
     macaddr (1.7.1)
       systemu (~> 2.6.2)
     memoist (0.9.3)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.2.0)
     minitest (5.9.0)
     minitest-reporters (1.1.9)
       ansi
@@ -68,8 +68,8 @@ GEM
       mongo (~> 2.3)
     mongoid-tree (2.1.0)
       mongoid (>= 4.0, < 7.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     parallel (1.9.0)
     rake (11.2.2)
     ruby-progressbar (1.8.1)
