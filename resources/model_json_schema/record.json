@@ -181,6 +181,16 @@
       }
     },
 
+    "patient_history": {
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": false,
+      "additionalItems": true,
+      "items": {
+        "$ref": "patientHistory.json#/definitions/PatientHistory"
+      }
+    },
+
     "immunizations": {
       "type": "array",
       "minItems": 0,
