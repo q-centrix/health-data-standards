@@ -5,7 +5,8 @@ class ProviderPerformance
   field :start_date, type: Integer
   field :end_date, type: Integer
 
-  belongs_to :provider, class_name: "HealthDataStandards::Provider"
+  belongs_to :provider, class_name: "HealthDataStandards::Provider",
+    optional: true
   embedded_in :record
   
 

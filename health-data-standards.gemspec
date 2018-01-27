@@ -12,13 +12,13 @@ Gem::Specification.new do |s|
   s.version = '3.6.1'
 
   s.add_dependency 'erubis', '~> 2.7.0'
-  s.add_dependency 'mongoid', '~> 5.0.0'
-  s.add_dependency 'mongoid-tree', '~> 2.0.0'
-  s.add_dependency 'activesupport', '~> 4.2.0'
+  s.add_dependency 'mongoid', '~> 6.0.0'
+  s.add_dependency 'mongoid-tree', '~> 2.1.0'
+  s.add_dependency 'activesupport', '~> 5.0.0'
 
   s.add_dependency 'uuid', '~> 2.3.7'
   s.add_dependency 'builder', '~> 3.1'
-  s.add_dependency 'nokogiri'
+  s.add_dependency 'nokogiri', '>= 1.7.1'
   s.add_dependency 'highline', "~> 1.7.0"
 
   s.add_dependency 'rubyzip', '>= 1.0.0'

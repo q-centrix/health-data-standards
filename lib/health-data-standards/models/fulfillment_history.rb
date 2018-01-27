@@ -8,7 +8,8 @@ class FulfillmentHistory
   field :fillNumber, as: :fill_number, type: Integer
   field :fillStatus, as: :fill_status, type: String
 
-  belongs_to :provider, class_name: "HealthDataStandards::Provider"
+  belongs_to :provider, class_name: "HealthDataStandards::Provider",
+    optional: true
 
   def shift_dates(date_diff)
     self.dispenseDate = (self.dispenseDate.nil?) ? nil : self.dispenseDate + date_diff

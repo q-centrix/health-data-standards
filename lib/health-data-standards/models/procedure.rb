@@ -18,7 +18,8 @@ module HealthDataStandards
 
     embeds_one :facility, class_name: "HealthDataStandards::Facility"
 
-    belongs_to :performer, class_name: "HealthDataStandards::Provider"
+    belongs_to :performer, class_name: "HealthDataStandards::Provider",
+      optional: true
 
     def shift_dates(date_diff)
     	super
