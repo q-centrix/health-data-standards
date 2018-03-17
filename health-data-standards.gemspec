@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.authors = ["Andy Gregorowicz", "Sam Sayer", "Marc Hadley", "Rob Dingwell", "Andre Quina"]
   s.license = 'APL 2.0'
 
-  s.version = '3.6.1'
+  s.version = '4.0'
 
   s.add_dependency 'erubis', '~> 2.7.0'
-  s.add_dependency 'mongoid', '~> 6.0.0'
+  s.add_dependency 'mongoid', '~> 6.2.1'
   s.add_dependency 'mongoid-tree', '~> 2.1.0'
-  s.add_dependency 'activesupport', '~> 5.0.0'
+  s.add_dependency 'activesupport', '~> 5.1.0'
 
   s.add_dependency 'uuid', '~> 2.3.7'
   s.add_dependency 'builder', '~> 3.1'
