@@ -5,7 +5,7 @@ module HQMF2
   class SourceDataCriteriaHelper
     # Generates an identifier based on the leftover elements included in the source data criteria.
     def self.identifier(criteria)
-      sha256 = ''
+      sha256 = ''.dup
       sha256 << "#{criteria.code_list_id}:"
       sha256 << "#{criteria.definition}:"
       sha256 << "#{criteria.status}:"

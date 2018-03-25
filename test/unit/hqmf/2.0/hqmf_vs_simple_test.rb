@@ -316,7 +316,7 @@ class HashDataCriteria
     # generate a SHA256 hash of key fields in the data criteria
     # sha256 = Digest::SHA256.new
     # uncomment to keep string undigested for comparison
-    sha256 = ''
+    sha256 = ''.dup
 
     sha256 << "1-#{criteria.code_list_id}:"
     sha256 << "2-#{criteria.definition}:"

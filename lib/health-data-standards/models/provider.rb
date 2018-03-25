@@ -69,7 +69,7 @@ module HealthDataStandards
     def self.luhn_checksum(num)
       double = {'0' => 0, '1' => 2, '2' => 4, '3' => 6, '4' => 8, '5' => 1, '6' => 3, '7' => 5, '8' => 7, '9' => 9}
       sum = 0
-      num.reverse!
+      num.dup.reverse!
       num.split("").each_with_index do |char, i|
         if (i%2)==0
           sum+=double[char]
