@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Processing on data criteria after the initial extractions have taken place
   module DataCriteriaPostProcessing

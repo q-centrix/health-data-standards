@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Represents an HQMF population criteria, also supports all the same methods as
   # HQMF2::Precondition

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Extracts the type, and modifies the data criteria, based on the template id or definition
   module DataCriteriaTypeAndDefinitionExtraction

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HealthDataStandards
   module Util
     # General helpers for working with codes and code systems

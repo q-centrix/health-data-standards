@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Handles various tasks that the Data Criteria needs performed to obtain and
   # modify secific occurrences

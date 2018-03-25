@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # require_relative 'cat_1'
 
 module HealthDataStandards

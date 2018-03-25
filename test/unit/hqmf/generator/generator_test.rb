@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GeneratorTest
 
   def test_xml_for_reference_id(id)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF
   # Simple class to issue monotonically increasing integer identifiers
   class InstanceCounter

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Metadata
   class ChangeInfo
     include Mongoid::Document
