@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require 'test_helper'
 
 class ProviderTest < Minitest::Test
-  
+
   def test_valid_npi_value
     assert_equal "3", HealthDataStandards::Provider.luhn_checksum('7992739871')
     assert HealthDataStandards::Provider.valid_npi?('1234567893')
