@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LabResult < Entry
   field :referenceRange, as: :reference_range, type: String
   field :referenceRangeHigh, as: :reference_range_high, type: String

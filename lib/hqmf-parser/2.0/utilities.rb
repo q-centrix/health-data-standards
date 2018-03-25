@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Module containing parser helper functions
   module Utilities

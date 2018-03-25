@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This is a freedom patch that will only be applied when using JRuby
 # Currently, Nokogiri does not properly handle namespace prefixes
 # when they are set on the document root and then used in XPath

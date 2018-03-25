@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Handles generation of populations for the main document
   class DocumentPopulationHelper

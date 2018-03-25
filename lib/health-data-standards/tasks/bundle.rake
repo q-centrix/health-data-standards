@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'health-data-standards'
 require 'highline/import'
 require 'open-uri'

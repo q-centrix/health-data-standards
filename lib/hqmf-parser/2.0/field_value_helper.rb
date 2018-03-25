@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Generates field values based on understanding of the HQMF 2.1 spec
   class FieldValueHelper

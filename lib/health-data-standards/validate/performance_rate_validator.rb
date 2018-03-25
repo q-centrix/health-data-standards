@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "reported_result_extractor"
 module HealthDataStandards
   module Validate

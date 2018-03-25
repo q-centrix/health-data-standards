@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Immunization < Entry
   field :seriesNumber, type: Integer
   field :reaction, type: Hash

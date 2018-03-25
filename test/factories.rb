@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :allergy do |f|
     f.codes {{"RxNorm" => ["70618"]}}

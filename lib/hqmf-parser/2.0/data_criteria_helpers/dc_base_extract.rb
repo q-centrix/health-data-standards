@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Contains extraction methods which are self-contained (rely only on the xml and an xpath, no other instance
   # variables)
