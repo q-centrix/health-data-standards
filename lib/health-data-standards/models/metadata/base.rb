@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Represents the metadata associated with a hData section
 module Metadata
   NS = 'http://www.hl7.org/schemas/hdata/2009/11/metadata'

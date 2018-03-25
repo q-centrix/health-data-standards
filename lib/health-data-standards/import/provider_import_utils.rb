@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ProviderImportUtils
 
   def extract_provider(performer, element_name="assignedEntity")

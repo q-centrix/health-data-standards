@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class MedicalEquipment < Entry
   
   field :manufacturer, type: String

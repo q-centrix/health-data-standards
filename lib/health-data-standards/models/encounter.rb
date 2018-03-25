@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Encounter < Entry
   field :admitType, as: :admit_type, type: Hash
   field :dischargeDisposition, as: :discharge_disposition, type: Hash

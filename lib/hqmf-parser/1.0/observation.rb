@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HQMF1
   # Represents an HQMF population criteria
   class Observation

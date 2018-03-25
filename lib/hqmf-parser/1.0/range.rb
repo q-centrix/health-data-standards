@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HQMF1
   # Represents a bound within a HQMF pauseQuantity, has a value, a unit and an
   # inclusive/exclusive indicator

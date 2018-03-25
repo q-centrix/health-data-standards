@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'erubis'
 require 'active_support'
 require 'mongoid'

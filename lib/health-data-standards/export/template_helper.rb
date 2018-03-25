@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HealthDataStandards
   module Export
     # Class that finds ERb templates. Here is how it can be configured:

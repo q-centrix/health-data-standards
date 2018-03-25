@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HQMF2
   # Class containing value set information
   class ValueSetHelper

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HQMF2
   # Generates the Source Data Criteria from the entries in the HQMF
   class SourceDataCriteriaHelper

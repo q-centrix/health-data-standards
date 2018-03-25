@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ThingWithCodes
   def self.included(receiver)
     receiver.field :codes, type: Hash, default: {}

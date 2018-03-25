@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HealthDataStandards
   module Import
     module C32

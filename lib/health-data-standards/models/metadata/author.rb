@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Metadata
   class Author
     include Mongoid::Document

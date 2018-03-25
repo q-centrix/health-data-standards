@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HQMF2
   # Utilities used by the document parser to handle generic tasks
   module DocumentUtilities

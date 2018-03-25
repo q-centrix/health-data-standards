@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class OrderInformation
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Medication < Entry
   field :administrationTiming, as: :administration_timing, type: Hash
   field :freeTextSig, type: String

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rake/testtask'
 require 'cane/rake_task'
 require "simplecov"

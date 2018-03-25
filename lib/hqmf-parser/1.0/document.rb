@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HQMF1
   # Class representing an HQMF document
   class Document

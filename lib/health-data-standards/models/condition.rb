@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HealthDataStandards
   class Condition < Entry
     field :type,              type: String

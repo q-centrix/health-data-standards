@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HQMF
   class Attribute
     include HQMF::Conversion::Utilities

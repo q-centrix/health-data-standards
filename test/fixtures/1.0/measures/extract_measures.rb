@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'fileutils'
 
 unless ARGV.length > 0
