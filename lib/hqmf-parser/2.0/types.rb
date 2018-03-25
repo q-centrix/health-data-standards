@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Used to represent 'any value' in criteria that require a value be present but
   # don't specify any restrictions on that value

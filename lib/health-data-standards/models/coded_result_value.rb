@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CodedResultValue < ResultValue
   include ThingWithCodes
   field :description, type: String

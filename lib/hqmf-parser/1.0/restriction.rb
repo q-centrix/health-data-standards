@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF1
   # Represents a restriction on the allowable values of a data item
   class Restriction

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This class can be used to represnt a functional status for a patient. Currently,
 # it is not a very close representation of functional status as it is represented
 # in the HL7 CCD, HITSP C32 or Consolidated CDA.

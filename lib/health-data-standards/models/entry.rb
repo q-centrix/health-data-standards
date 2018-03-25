@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Entry
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic

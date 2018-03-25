@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Symbol
   # Will take the current symbol and append an "=" to the end of it.
   # So :bacon will become :bacon=. It is assumed that this would be

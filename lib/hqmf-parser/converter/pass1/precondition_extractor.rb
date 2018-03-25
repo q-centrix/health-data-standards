@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF
   
   # preconditions can be in several places.

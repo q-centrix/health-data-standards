@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'java'
 require_relative '../../../../java/saxon9he.jar'
 

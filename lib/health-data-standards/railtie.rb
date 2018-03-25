@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HealthDataStandards
   class Railtie < Rails::Railtie
     initializer 'Rails logger' do

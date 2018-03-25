@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Represents a data criteria specification
   class DataCriteria

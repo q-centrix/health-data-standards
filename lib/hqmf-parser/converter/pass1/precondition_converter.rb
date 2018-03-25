@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF
   # Class for converting an HQMF 1.0 representation to an HQMF 2.0 representation
   class PreconditionConverter

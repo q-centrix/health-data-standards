@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :cover_me do
   
   task :report do

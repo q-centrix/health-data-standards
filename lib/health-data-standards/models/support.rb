@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Support < Entry
   include Mongoid::Document
   

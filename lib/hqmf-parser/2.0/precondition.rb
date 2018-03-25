@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HQMF2
   # Represents the logic that defines grouping of criteria and actions done on it.
   class Precondition

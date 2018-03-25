@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'validation_error'
 require_relative 'base_validator'
 require_relative 'schema_validator'
