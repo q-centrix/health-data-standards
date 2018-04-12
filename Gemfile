@@ -21,3 +21,9 @@ group :test do
   gem 'simplexml_parser', :git => 'https://github.com/projecttacoma/simplexml_parser.git', :branch => 'master'
 
 end
+
+gem(
+  'delayed_job',
+  git: 'git@github.com:pixeltrix/delayed_job',
+  branch: 'allow-rails-5-2'
+)
