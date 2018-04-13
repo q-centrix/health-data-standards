@@ -1,12 +1,4 @@
 GIT
-  remote: git@github.com:pixeltrix/delayed_job
-  revision: b987d52f292a90fa7d3a4186c96b818bb97be533
-  branch: allow-rails-5-2
-  specs:
-    delayed_job (4.1.4)
-      activesupport (>= 3.0, < 6.0)
-
-GIT
   remote: https://github.com/projecttacoma/simplexml_parser.git
   revision: 1e8429773abb3e297c03133ae202900f35a6f9ed
   branch: master
@@ -19,7 +11,7 @@ PATH
   remote: .
   specs:
     health-data-standards (4.0)
-      activesupport (~> 5.2.0)
+      activesupport (< 6.0)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       highline (~> 1.7.0)
@@ -122,7 +114,6 @@ DEPENDENCIES
   awesome_print
   byebug (~> 6.0.2)
   cane (~> 2.3.0)
-  delayed_job!
   factory_girl (~> 4.1.0)
   health-data-standards!
   minitest (~> 5.3)
