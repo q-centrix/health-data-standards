@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          RAILS_ENV: test
+      - image: circleci/mongo:3
+    steps:
+      - checkout
+      - run: gem install bundler
+      - run: sudo gem update --system
+      - restore_cache:
+          keys:
+            - health-data-standards-{{ checksum "Gemfile.lock" }}
+            - health-data-standards-
+
+      - run: bundle update json
+      - run: bundle install --path vendor/bundle --without staging doc
+      - run: sudo apt install postgresql-client
+
+      - save_cache:
+          key: health-data-standards-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - type: shell
+        name: Run rake test
+        command: rake test
