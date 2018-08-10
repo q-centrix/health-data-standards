@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+ENV['HDS'] = 'true' # used to prevent loading of unnecessary files in ecqm-api
 require 'rake/testtask'
 require 'cane/rake_task'
 require "simplecov"
