@@ -5,6 +5,7 @@ jobs:
       - image: circleci/ruby:2.5.1-node
         environment:
           RAILS_ENV: test
+          HDS: true
       - image: circleci/mongo:3
     steps:
       - checkout
