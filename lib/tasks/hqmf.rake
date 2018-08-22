@@ -3,16 +3,16 @@
 require 'pathname'
 require 'fileutils'
 require 'json'
-require 'hqmf-parser'
+require_relative '../hqmf-parser'
 
 namespace :hqmf do
 
   desc 'Parse all xml files to JSON and save them to ./tmp'
   task :parse_all, [:path, :version] do |t, args|
-    
+
     raise "You must specify the HQMF XML file path to convert" unless args.path
 
-    
+
     FileUtils.mkdir_p File.join(".","tmp",'json','all')
     path = File.expand_path(args.path)
     version = args.version || HQMF::Parser::HQMF_VERSION_1

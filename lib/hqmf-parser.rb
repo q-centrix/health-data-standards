@@ -4,7 +4,7 @@
 require 'nokogiri'
 require 'json'
 require 'ostruct'
-require 'health-data-standards'
+require_relative './health-data-standards'
 
 # require_relative
 require_relative 'util/counter.rb' if ENV['HDS']
