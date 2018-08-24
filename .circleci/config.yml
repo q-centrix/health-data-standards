@@ -5,6 +5,7 @@ jobs:
       - image: circleci/ruby:2.5.0
         environment:
           RAILS_ENV: test
+          TESTOPTS: "--ci-dir=/home/circleci/project/test/reports"
     steps:
       - checkout
 
@@ -19,13 +20,16 @@ jobs:
             sudo mongod --fork --logpath /data/log/mongod.log
 
       - run: gem install bundler
+
       - run: sudo gem update --system
+
       - restore_cache:
           keys:
             - health-data-standards-{{ checksum "Gemfile.lock" }}
             - health-data-standards-
 
       - run: bundle config --local path vendor/bundle
+
       - run: bundle install --without staging doc
 
       - save_cache:
@@ -35,4 +39,7 @@ jobs:
 
       - type: shell
         name: Run rake test
-        command: rake test
+        command: rake test 
+
+      - store_test_results:
+          path: test/reports
