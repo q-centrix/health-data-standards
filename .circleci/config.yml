@@ -30,12 +30,12 @@ jobs:
 
       - run: bundle config --local path vendor/bundle
 
-      - run: bundle install --without staging doc
+      - run: bundle install --without staging doc --jobs=4
 
       - save_cache:
           key: health-data-standards-{{ checksum "Gemfile.lock" }}
           paths:
-            - vendor/bundle
+            - ./vendor/bundle
 
       - type: shell
         name: Run rake test
