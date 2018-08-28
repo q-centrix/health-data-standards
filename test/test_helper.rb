@@ -13,8 +13,11 @@ require "minitest/reporters"
 require 'bundler/setup'
 
 require 'webmock/minitest'
+require 'minitest/ci'
 
 FactoryGirl.find_definitions
+
+Minitest::Ci.clean = false
 
 db_host = ENV['TEST_DB_HOST'] || 'localhost'
 

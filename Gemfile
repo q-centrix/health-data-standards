@@ -17,6 +17,7 @@ group :test do
   gem "minitest", "~> 5.3"
   gem 'minitest-reporters'
   gem 'awesome_print', :require => 'ap'
+  gem 'minitest-ci' # needed to upload test results on circle 2.0
 
   gem 'simplexml_parser', :git => 'https://github.com/projecttacoma/simplexml_parser.git', :branch => 'master'
 
