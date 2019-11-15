@@ -9,8 +9,8 @@ class Encounter < Entry
   embeds_one :principalDiagnosis, class_name: "EncounterPrincipalDiagnosis"
   embeds_one :diagnosis, class_name: "EncounterPrincipalDiagnosis"
   
-  embeds_one :transferTo, class_name: "Transfer"
-  embeds_one :transferFrom, class_name: "Transfer"
+  embeds_one :transferTo, class_name: "Transfer", inverse_of: :transfer
+  embeds_one :transferFrom, class_name: "Transfer", inverse_of: :transfer
 
   embeds_one :facility, class_name: "HealthDataStandards::Facility"
   embeds_one :reason, class_name: "Entry"
