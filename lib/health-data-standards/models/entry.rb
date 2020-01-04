@@ -26,6 +26,8 @@ class Entry
   field :reason, type: Hash
   field :health_record_field, type: Hash
 
+# attr_protected is from protected_attributes gem that is no longer maintained
+# because rails now prevents mass assignment through strong parameters.
   # attr_protected :version
   # attr_protected :_id
   # attr_protected :created_at
