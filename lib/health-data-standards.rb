@@ -33,6 +33,9 @@ require_relative 'health-data-standards/export/exceptions'
 require_relative 'health-data-standards/import/provider_import_utils'
 require_relative 'health-data-standards/import/hdata/metadata_importer'
 
+# NOTE: We have commented out all hds models and are adding back in, as needed.
+# This is due to models with the same name as those in web. To avoid conflicts,
+# we only use what is necessary.
 # require_relative 'health-data-standards/models/thing_with_codes'
 # require_relative 'health-data-standards/models/result_value'
 # require_relative 'health-data-standards/models/coded_result_value'
