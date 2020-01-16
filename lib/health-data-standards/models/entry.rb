@@ -2,7 +2,7 @@ class Entry
   # include ActiveModel::MassAssignmentSecurity
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
-  # include ThingWithCodes
+  include ThingWithCodes
 
   # embedded_in :entry_list, polymorphic: true
 

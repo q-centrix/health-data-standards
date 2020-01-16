@@ -5,7 +5,7 @@ module Qrda
     include Mongoid::Document
     field :time, type: DateTime, default: Time.now
     embeds_many :ids
-    embeds_many :addresses
+    embeds_many :addresses, class_name: 'HDS::Address'
     embeds_many :telecoms
     embeds_one :person, class_name: "Qrda::Person"
     embeds_one :device

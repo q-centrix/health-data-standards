@@ -4,7 +4,7 @@ module Qrda
     include Mongoid::Document
     field :name, type: String
     embeds_many :ids
-    embeds_many :addresses
+    embeds_many :addresses, class_name: 'HDS::Address'
     embeds_many :telecoms
   end
   

@@ -4,6 +4,6 @@ class Organization
   
   field :name, type: String
   
-  embeds_many :addresses, as: :locatable
+  embeds_many :addresses, as: :locatable, class_name: 'HDS::Address'
   embeds_many :telecoms, as: :contactable
 end

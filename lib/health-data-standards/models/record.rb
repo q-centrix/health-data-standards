@@ -59,7 +59,7 @@ class Record
    :insurance_providers, :functional_statuses, :care_experiences, :assessments, :adverse_events]
 
   embeds_many :provider_performances
-  embeds_many :addresses, as: :locatable
+  embeds_many :addresses, as: :locatable, class_name: 'HDS::Address'
   embeds_many :telecoms, as: :contactable
 
   scope :by_provider, ->(prov, effective_date) { (effective_date) ? where(provider_queries(prov.id, effective_date)) : where('provider_performances.provider_id'=>prov.id)  }

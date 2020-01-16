@@ -86,6 +86,8 @@ module HealthDataStandards
         end 
 
         def parse_cat1(doc)
+          puts 'in parse_cat1'
+
           record = Record.new
           HealthDataStandards::Import::C32::PatientImporter.instance.get_demographics(record, doc)
           import_sections(record, doc)
