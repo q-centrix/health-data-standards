@@ -35,7 +35,7 @@ class Record
   embeds_many :immunizations
   embeds_many :medical_equipment
   embeds_many :medications
-  embeds_many :procedures
+  embeds_many :procedures, class_name: "HDS::Procedure"
   embeds_many :results, class_name: "LabResult"
   embeds_many :socialhistories, class_name: "Entry"
   embeds_many :care_experiences

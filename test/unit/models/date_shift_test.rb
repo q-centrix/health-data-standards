@@ -179,7 +179,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 		values.each do |vals|
 			pro_values.each do |pro_val|
 				e_vals = vals.merge pro_val
-		  	entry = Procedure.new(e_vals)
+		  	entry = HDS::Procedure.new(e_vals)
 				entry.shift_dates(date_shift)
 				entry_shift_assertions(e_vals,date_shift, entry)
 			end
