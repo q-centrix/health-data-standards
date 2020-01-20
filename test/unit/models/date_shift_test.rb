@@ -35,7 +35,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 		values.each do |vals|
 			con_values.each do |con_val|
 				e_vals = vals.merge con_val
-		  	entry = Condition.new(e_vals)
+		  	entry = HDS::Condition.new(e_vals)
 				entry.shift_dates(date_shift)
 				entry_shift_assertions(e_vals,date_shift, entry)
 			end
