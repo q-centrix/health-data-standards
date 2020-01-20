@@ -2,7 +2,7 @@ class Guarantor
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
   
-  embeds_one :organization, class_name: 'HDS::Organization'
+  embeds_one :organization, class_name: "HDS::Organization"
   embeds_one :person
   
   field :time, type: Integer

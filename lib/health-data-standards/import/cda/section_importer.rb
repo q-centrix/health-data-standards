@@ -46,7 +46,7 @@ module HealthDataStandards
         end
 
         def create_entry(entry_element, nrh = NarrativeReferenceHandler.new)
-          entry = get_entry_class.new
+          entry = @entry_class.new
           extract_id(entry_element, entry)
           extract_codes(entry_element, entry)
           extract_dates(entry_element, entry)
@@ -64,18 +64,6 @@ module HealthDataStandards
         end
 
         private
-
-          def get_entry_class
-            case @entry_class.name
-            when 'Procedure'
-              HDS::Procedure
-            when 'Condition'
-              HDS::Condition
-            else
-              @entry_class
-            end
-          end
-
           def update_default_description(parent_element, entry)
             templateid = parent_element.at_xpath("./cda:templateId/@root").to_s
             template_id_file = File.expand_path('../../../util/description_mapper.json', __FILE__)
