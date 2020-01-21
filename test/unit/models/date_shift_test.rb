@@ -35,7 +35,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 		values.each do |vals|
 			con_values.each do |con_val|
 				e_vals = vals.merge con_val
-		  	entry = Condition.new(e_vals)
+		  	entry = HDS::Condition.new(e_vals)
 				entry.shift_dates(date_shift)
 				entry_shift_assertions(e_vals,date_shift, entry)
 			end
@@ -56,7 +56,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 				facility_values.each do |fac_vals|
 					e_vals = vals.merge enc_vals
 			  	entry = Encounter.new(e_vals)
-				  entry.facility = Facility.new(fac_vals).as_json()
+				  entry.facility = HDS::Facility.new(fac_vals).as_json()
 					entry.shift_dates(date_shift)
 					entry_shift_assertions(e_vals,date_shift, entry) {|ev,ds,ent| entry_shift_assertions(fac_vals,ds,Facility.new(entry.facility))}
 				end
@@ -73,7 +73,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 												{start_time: nil, end_time: 1},
 												{start_time: 1, end_time: 1}]
 		facility_values.each do |fac_vals|
-			facility = Facility.new(fac_vals)
+			facility = HDS::Facility.new(fac_vals)
 			facility.shift_dates(date_shift)
 			entry_shift_assertions(fac_vals,date_shift, facility)
 		end
@@ -179,7 +179,7 @@ ENTRY_VALUES = [{start_time: nil, end_time: nil, time: nil},
 		values.each do |vals|
 			pro_values.each do |pro_val|
 				e_vals = vals.merge pro_val
-		  	entry = Procedure.new(e_vals)
+		  	entry = HDS::Procedure.new(e_vals)
 				entry.shift_dates(date_shift)
 				entry_shift_assertions(e_vals,date_shift, entry)
 			end

@@ -7,7 +7,7 @@ module Personable
     receiver.field :given_name  , type: String
     receiver.field :family_name , type: String
 
-    receiver.embeds_many :addresses, as: :locatable
+    receiver.embeds_many :addresses, as: :locatable, class_name: 'HDS::Address'
     receiver.embeds_many :telecoms, as: :contactable
   end
 end

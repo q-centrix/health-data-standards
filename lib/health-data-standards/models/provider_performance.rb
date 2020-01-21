@@ -5,7 +5,7 @@ class ProviderPerformance
   field :start_date, type: Integer
   field :end_date, type: Integer
   
-  belongs_to :provider
+  belongs_to :provider, class_name: "HDS::Provider"
   embedded_in :record
   
 

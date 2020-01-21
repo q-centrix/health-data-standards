@@ -2,7 +2,7 @@ class Immunization < Entry
   field :seriesNumber, type: Integer
   field :reaction, type: Hash
   
-  belongs_to :performer, class_name: "Provider"
+  belongs_to :performer, class_name: "HDS::Provider"
   
   embeds_one :medication_product
   

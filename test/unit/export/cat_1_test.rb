@@ -10,7 +10,7 @@ class Cat1Test < Minitest::Test
       @patient = Record.where({first: "Barry"}).first
 
       pp = ProviderPerformance.new(start_date: Time.new(2012).to_i, end_date: Time.new(2012, 12, 31).to_i)
-      provider = Provider.new(first: 'Hiram', last: 'McDaniels')
+      provider = HDS::Provider.new(first: 'Hiram', last: 'McDaniels')
       provider.npi = '111111111'
       provider.save!
       pp.provider = provider

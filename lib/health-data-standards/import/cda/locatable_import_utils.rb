@@ -4,7 +4,7 @@ module HealthDataStandards
       # Helpers for importing C32 addresses and telecoms
       module LocatableImportUtils
         def import_address(address_element)
-          address = Address.new
+          address = HDS::Address.new
           address.use = address_element['use']
           address.street = address_element.xpath("./cda:streetAddressLine").map {|street| street.text}
           address.city = address_element.at_xpath("./cda:city").try(:text)
