@@ -102,6 +102,7 @@ module HealthDataStandards
           data_criteria_oid ||= HQMFTemplateHelper.template_id_by_definition_and_status(data_criteria.definition,
                                                                                       data_criteria.status || '',
                                                                                       data_criteria.negation, "r2")
+          
           HealthDataStandards.logger.debug("Looking for dc [#{data_criteria_oid}]")
           filtered_entries = []
           entries = []
@@ -112,6 +113,7 @@ module HealthDataStandards
           when '2.16.840.1.113883.3.560.1.405'
             filtered_entries = handle_payer_information(patient)
           else
+            puts "yyy - #{patient.entries_for_oid(data_criteria_oid)}"
             entries.concat patient.entries_for_oid(data_criteria_oid)
 
             case data_criteria_oid
@@ -173,8 +175,14 @@ module HealthDataStandards
                   ttc && !ttc.empty?
                 end
               else
+                puts "zzz1 - #{entry.is_in_code_set?(codes)}"
+                puts "zzz2 - #{entry.is_in_code_set?(codes) && (is_hqmfr2 || !!entry.negation_ind || !data_criteria.negation)}"
+
                 # The !! hack makes sure that negation_ind is a boolean. negations use the same hqmf templates in r2
-                entry.is_in_code_set?(codes) && (is_hqmfr2 || !!entry.negation_ind == data_criteria.negation)
+                # entry.is_in_code_set?(codes) && (is_hqmfr2 || !!entry.negation_ind == data_criteria.negation)
+                # QApps fix negation not uisng the template
+                entry.is_in_code_set?(codes) && (is_hqmfr2 || !!entry.negation_ind || !data_criteria.negation)
+
               end
             end
           end
