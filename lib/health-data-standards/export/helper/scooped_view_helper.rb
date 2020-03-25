@@ -103,6 +103,8 @@ module HealthDataStandards
                                                                                       data_criteria.status || '',
                                                                                       data_criteria.negation, "r2")
           
+          puts '-------'
+          puts "#{data_criteria.definition}, #{data_criteria.status}, #{data_criteria.negation}, r2: #{is_hqmfr2}"
           HealthDataStandards.logger.debug("Looking for dc [#{data_criteria_oid}]")
           filtered_entries = []
           entries = []
@@ -113,7 +115,7 @@ module HealthDataStandards
           when '2.16.840.1.113883.3.560.1.405'
             filtered_entries = handle_payer_information(patient)
           else
-            puts "yyy - #{patient.entries_for_oid(data_criteria_oid)}"
+            puts "entry exists - #{patient.entries_for_oid(data_criteria_oid).any?}"
             entries.concat patient.entries_for_oid(data_criteria_oid)
 
             case data_criteria_oid
@@ -140,6 +142,9 @@ module HealthDataStandards
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.3')
             when  '2.16.840.1.113883.3.560.1.114'
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.14')
+            when  '2.16.840.1.113883.3.560.1.14'
+              # QApps fix/hack cms53v7 somehow patient has hqmfOid 2.16.840.1.113883.3.560.1.64
+              entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.64')
             when  '2.16.840.1.113883.3.560.1.110'
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.10')
             when  '2.16.840.1.113883.3.560.1.137'
