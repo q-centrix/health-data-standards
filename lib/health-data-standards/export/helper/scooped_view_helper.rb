@@ -143,7 +143,7 @@ module HealthDataStandards
             when  '2.16.840.1.113883.3.560.1.114'
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.14')
             when  '2.16.840.1.113883.3.560.1.14'
-              # QApps fix/hack cms53v7 somehow patient has hqmfOid 2.16.840.1.113883.3.560.1.64
+              # QApps fix cms53v7, cms72v7 somehow patient has hqmfOid 2.16.840.1.113883.3.560.1.64
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.64')
             when  '2.16.840.1.113883.3.560.1.110'
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.10')
@@ -181,7 +181,10 @@ module HealthDataStandards
                 end
               elsif data_criteria_oid == '2.16.840.1.113883.3.560.1.31'
                 # QApps fix cms26v6 allow this patient negation_ind to use this data_criteria_oid
-                true
+                entry.is_in_code_set?(codes)
+              elsif data_criteria_oid == '2.16.840.1.113883.3.560.1.14'
+                # QApps fix cms72v7 allow this patient negation_ind to use this data_criteria_oid
+                entry.is_in_code_set?(codes)
               else
                 puts "zzz1 - #{entry.is_in_code_set?(codes)}"
                 puts "zzz2 - #{(is_hqmfr2 || !!entry.negation_ind == data_criteria.negation)}"
