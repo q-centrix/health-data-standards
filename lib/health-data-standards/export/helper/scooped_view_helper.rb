@@ -102,6 +102,7 @@ module HealthDataStandards
           data_criteria_oid ||= HQMFTemplateHelper.template_id_by_definition_and_status(data_criteria.definition,
                                                                                       data_criteria.status || '',
                                                                                       data_criteria.negation, "r2")
+          
           HealthDataStandards.logger.debug("Looking for dc [#{data_criteria_oid}]")
           filtered_entries = []
           entries = []
@@ -138,6 +139,9 @@ module HealthDataStandards
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.3')
             when  '2.16.840.1.113883.3.560.1.114'
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.14')
+            when  '2.16.840.1.113883.3.560.1.14'
+              # QApps fix cms53v7, cms72v7 somehow patient has hqmfOid 2.16.840.1.113883.3.560.1.64
+              entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.64')
             when  '2.16.840.1.113883.3.560.1.110'
               entries.concat patient.entries_for_oid('2.16.840.1.113883.3.560.1.10')
             when  '2.16.840.1.113883.3.560.1.137'
@@ -172,6 +176,12 @@ module HealthDataStandards
                   ttc = entry.transferTo.codes_in_code_set(codes).values.first
                   ttc && !ttc.empty?
                 end
+              elsif data_criteria_oid == '2.16.840.1.113883.3.560.1.31'
+                # QApps fix cms26v6 allow this patient negation_ind to use this data_criteria_oid
+                entry.is_in_code_set?(codes)
+              elsif data_criteria_oid == '2.16.840.1.113883.3.560.1.14'
+                # QApps fix cms72v7 allow this patient negation_ind to use this data_criteria_oid
+                entry.is_in_code_set?(codes)
               else
                 # The !! hack makes sure that negation_ind is a boolean. negations use the same hqmf templates in r2
                 entry.is_in_code_set?(codes) && (is_hqmfr2 || !!entry.negation_ind == data_criteria.negation)

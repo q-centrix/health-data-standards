@@ -103,10 +103,19 @@ module HealthDataStandards
           if dose[:scalar].present?
             return "value='#{dose[:scalar]}' unit='#{dose[:units]}'"
           elsif dose[:value].present?
-            return "value='#{dose[:value]}' unit='#{dose[:unit]}'"
+            return dose_value(dose)
           else
             return "value='1'"
           end
+        end
+      end
+
+      # QApps 2015 certification - fix dose quality, do not show unit if null
+      def dose_value(dose)
+        if dose[:unit].present?
+          "value='#{dose[:value]}' unit='#{dose[:unit]}'"
+        else
+          "value='#{dose[:value]}'"
         end
       end
 
