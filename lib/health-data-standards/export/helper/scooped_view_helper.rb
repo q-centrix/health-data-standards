@@ -182,6 +182,9 @@ module HealthDataStandards
               elsif data_criteria_oid == '2.16.840.1.113883.3.560.1.14'
                 # QApps fix cms72v7 allow this patient negation_ind to use this data_criteria_oid
                 entry.is_in_code_set?(codes)
+              elsif data_criteria_oid == '2.16.840.1.113883.3.560.1.3'
+                # QApps fix cms31v7 allow this patient negation_ind to use this data_criteria_oid
+                entry.is_in_code_set?(codes)
               else
                 # The !! hack makes sure that negation_ind is a boolean. negations use the same hqmf templates in r2
                 entry.is_in_code_set?(codes) && (is_hqmfr2 || !!entry.negation_ind == data_criteria.negation)
