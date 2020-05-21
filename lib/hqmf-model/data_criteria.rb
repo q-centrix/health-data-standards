@@ -454,7 +454,7 @@ module HQMF
         when 'COL'
           value = HQMF::Collection.from_json(json)
         when 'FAC'
-          value = Facility.new(json)
+          value = HDS::Facility.new(json)
         else
           raise "Unknown value type [#{type}]"
         end

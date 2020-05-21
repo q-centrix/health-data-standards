@@ -57,7 +57,7 @@ module HealthDataStandards
           provider[:addresses] = performer.xpath("./cda:assignedEntity/cda:addr").try(:map) {|ae| import_address(ae)}
           provider[:telecoms] = performer.xpath("./cda:assignedEntity/cda:telecom").try(:map) {|te| import_telecom(te)}
           
-          provider[:npi] = npi if Provider.valid_npi?(npi)
+          provider[:npi] = npi if HDS::Provider.valid_npi?(npi)
           provider[:cda_identifiers] = cda_idents
 
           provider

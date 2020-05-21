@@ -57,6 +57,14 @@
           </participantRole>
         </participant>
         <% end -%>
+        <% if entry.respond_to?(:admission_source) && entry.admission_source.present? -%>
+        <participant typeCode="LOC">
+          <participantRole classCode="SDLOC">
+            <templateId extension="2017-08-01" root="2.16.840.1.113883.10.20.24.3.151"/>
+            <code code="<%= entry.admission_source.code %>" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+          </participantRole>
+        </participant>
+        <% end -%>
         <% if entry.reason.present? -%>
           <%== render(:partial => 'reason', :locals => {:entry => entry,:reason_oids=>field_oids["REASON"]}) %>
         <% end -%>

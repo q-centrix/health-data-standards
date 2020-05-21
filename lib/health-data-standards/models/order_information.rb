@@ -8,7 +8,7 @@ class OrderInformation
   field :orderExpirationDateTime, as: :order_expiration_date_time, type: Integer
   field :orderDateTime, as: :order_date_time, type: Integer
   
-  belongs_to :provider
+  belongs_to :provider, class_name: "HDS::Provider"
 
 
   def shift_dates(date_diff)

@@ -12,7 +12,7 @@ module HealthDataStandards
           @description_xpath = "./cda:text/cda:reference[@value]"
           @provider_xpath = "./cda:act[cda:templateId/@root='2.16.840.1.113883.10.20.1.27']/cda:performer"
           @priority_xpath = "../cda:sequenceNumber"
-          @entry_class = Condition
+          @entry_class = HDS::Condition
           @value_xpath = nil
         end
 

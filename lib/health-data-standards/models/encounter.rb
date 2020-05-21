@@ -14,7 +14,7 @@ class Encounter < Entry
   embeds_one :admission_source, class_name: "AdmissionSource"
   embeds_one :reason, class_name: "Entry"
 
-  belongs_to :performer, class_name: "Provider"
+  belongs_to :performer, class_name: "HDS::Provider"
 
   alias :transfer_to :transferTo
   alias :transfer_to= :transferTo=

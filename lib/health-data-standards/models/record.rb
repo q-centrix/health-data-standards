@@ -28,14 +28,14 @@ class Record
   index bundle_id: 1
   embeds_many :allergies # used for QDM 5.0 allergy/intollerance
   embeds_many :care_goals, class_name: "Entry" # This can be any number of different entry types
-  embeds_many :conditions
+  embeds_many :conditions, class_name: "HDS::Condition"
   embeds_many :encounters
   embeds_many :communications
   embeds_many :family_history
   embeds_many :immunizations
   embeds_many :medical_equipment
   embeds_many :medications
-  embeds_many :procedures
+  embeds_many :procedures, class_name: "HDS::Procedure"
   embeds_many :results, class_name: "LabResult"
   embeds_many :socialhistories, class_name: "Entry"
   embeds_many :care_experiences
@@ -59,7 +59,7 @@ class Record
    :insurance_providers, :functional_statuses, :care_experiences, :assessments, :adverse_events]
 
   embeds_many :provider_performances
-  embeds_many :addresses, as: :locatable
+  embeds_many :addresses, as: :locatable, class_name: 'HDS::Address'
   embeds_many :telecoms, as: :contactable
 
   scope :by_provider, ->(prov, effective_date) { (effective_date) ? where(provider_queries(prov.id, effective_date)) : where('provider_performances.provider_id'=>prov.id)  }

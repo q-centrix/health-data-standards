@@ -18,9 +18,11 @@ module HealthDataStandards
       end
 
       def create_code_string(entry, preferred_code, options={})
-        
+        # QApps fix manual sample test for CMS102v7
+        return override_negation_entry(entry.codes) if negation_entry?(entry)
+
         code_string = create_code_display_string(entry, preferred_code, options)
-        
+
         unless entry['negationInd'] == true
           code_string += "<originalText>#{ERB::Util.html_escape entry.description}</originalText>" if entry.respond_to?(:description)
 
@@ -32,6 +34,16 @@ module HealthDataStandards
         end
 
         code_string
+      end
+
+      # QApps fix manual sample test for CMS102v7
+      def override_negation_entry(codes)
+        "<code nullFlavor=\"NA\" sdtc:valueSet=\"#{codes['NA_VALUESET'].first}\"/>"
+      end
+
+      # QApps fix manual sample test for CMS102v7
+      def negation_entry?(entry)
+        entry['negationInd'] == true && entry.codes.has_key?('NA_VALUESET')
       end
 
       def create_code_display_string(entry, preferred_code, options={})
@@ -103,10 +115,19 @@ module HealthDataStandards
           if dose[:scalar].present?
             return "value='#{dose[:scalar]}' unit='#{dose[:units]}'"
           elsif dose[:value].present?
-            return "value='#{dose[:value]}' unit='#{dose[:unit]}'"
+            return dose_value(dose)
           else
             return "value='1'"
           end
+        end
+      end
+
+      # QApps 2015 certification - fix dose quality, do not show unit if null
+      def dose_value(dose)
+        if dose[:unit].present?
+          "value='#{dose[:value]}' unit='#{dose[:unit]}'"
+        else
+          "value='#{dose[:value]}'"
         end
       end
 

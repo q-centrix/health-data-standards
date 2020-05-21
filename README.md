@@ -1,3 +1,11 @@
+Q-Centrix has two versions of ECQM:
+    1. [ECQM-API](https://github.com/q-centrix/ecqm-api) - original repo; from 2015
+    2. [ECQM-API-V2](https://github.com/q-centrix/ecqm-api-v2) - created 2019
+
+Both Q-Centrix ECQM repositories rely on this repo, health-data-standards, to run calculations. The main branch for each repo:
+    1. ECQM-API uses branch 'acs-1691-to-mongoid7'
+    2. ECQM-API-V2 uses branch 'ecqm_v2_master' which is branched off health-data-standards 'r5'. We are using this branch because we mimic pophealth's 'v6' branch. In order to use pophealth 'v6', we need to use the correct health-data-standards branch, 'r5'.
+
 This is a project to generate and consume HITSP C32, QRDA Category I, and QRDA Category III.
 
 In addition this project also contains libraries for parsing HQMF documents and for dealing with NLM valuesets.
